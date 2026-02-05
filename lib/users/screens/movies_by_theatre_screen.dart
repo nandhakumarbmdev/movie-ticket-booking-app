@@ -149,7 +149,7 @@ class _MoviesByTheatreScreenState extends State<MoviesByTheatreScreen> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.s`tart,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "${movie['title']} - ${movie['language']}",
