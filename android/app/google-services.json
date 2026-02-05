@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "53271392523",
+    "firebase_url": "https://movie-ticket-booking-62b98-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "movie-ticket-booking-62b98",
+    "storage_bucket": "movie-ticket-booking-62b98.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53271392523:android:57ed06d01eb82231d6f20e",
+        "android_client_info": {
+          "package_name": "com.example.movie_ticket_booking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53271392523-9c2m4bjeblftg2bdbdtscsjo15t7cg18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbaOgGJAKoYipSyTcDbGJi1QNF86gWX4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53271392523-9c2m4bjeblftg2bdbdtscsjo15t7cg18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
