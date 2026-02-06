@@ -1,0 +1,66 @@
+[
+  {
+    "theatre_id": "M2-Xp7DQe981QsR0Ua9",
+    "name": "Murugan Theatre",
+    "city": "Erode",
+    "address": "Brough Road, Near Bus Stand, Erode - 638001",
+    "is_active": true
+  },
+  {
+    "theatre_id": "K5-Js8QWm654DfT1Bz",
+    "name": "Karpagam Cinemas",
+    "city": "Coimbatore",
+    "address": "Pollachi Main Road, Eachanari, Coimbatore - 641021",
+    "is_active": true
+  },
+  {
+    "theatre_id": "R8-Ve0MNq442LpKc7A",
+    "name": "Raja Theatre",
+    "city": "Salem",
+    "address": "Omalur Main Road, Fairlands, Salem - 636016",
+    "is_active": true
+  },
+  {
+    "theatre_id": "A3-CN9PLx662WQH5K",
+    "name": "Anandha Cinemas",
+    "city": "Karur",
+    "address": "Jawahar Bazaar Road, Karur - 639001",
+    "is_active": true
+  },
+  {
+    "theatre_id": "P1-ZQ4Nm883KsT72L",
+    "name": "PSS Multiplex",
+    "city": "Udumalpet",
+    "address": "Palani Road, Udumalpet - 642126",
+    "is_active": true
+  },
+  {
+    "theatre_id": "G7-BL2Vx994RQ8mE",
+    "name": "Gokul Theatre",
+    "city": "Pollachi",
+    "address": "New Scheme Road, Pollachi - 642001",
+    "is_active": true
+  },
+  {
+    "theatre_id": "S4-MQx1K882NRe9P",
+    "name": "Shree Devi Cinemas",
+    "city": "Tiruchengode",
+    "address": "Sankari Road, Tiruchengode - 637211",
+    "is_active": true
+  },
+  {
+    "theatre_id": "V6-RT9QWm230LcP8",
+    "name": "Vetri Theatre",
+    "city": "Namakkal",
+    "address": "Salem Road, Namakkal - 637001",
+    "is_active": true
+  },
+  {
+    "theatre_id": "N2-KP8QXW541MRL7",
+    "name": "Nila Cinemas",
+    "city": "Dharapuram",
+    "address": "Kangeyam Road, Dharapuram - 638656",
+    "is_active": true
+  }
+]
+
