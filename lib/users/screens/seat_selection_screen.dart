@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../../constants/api_routes.dart';
 import '../../constants/color.dart';
+import '../../services/notification_service.dart';
 import '/users/screens/payment_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -65,6 +66,11 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
         seats: _selectedSeats.toList(),
       );
       _seatFuture = _fetchSeats(widget.showId);
+
+      NotificationService.instance.showLocalNotification(
+        title: '🎬 Booking Confirmed',
+        body: 'Your seat has been reserved successfully.',
+      );
     } on DioException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.message.toString())),

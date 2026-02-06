@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants/color.dart';
 
 class ProfileEditableField extends StatelessWidget {
@@ -8,13 +7,7 @@ class ProfileEditableField extends StatelessWidget {
   final TextEditingController controller;
   final int maxLines;
 
-  const ProfileEditableField({
-    super.key,
-    required this.icon,
-    required this.label,
-    required this.controller,
-    this.maxLines = 1,
-  });
+  const ProfileEditableField({ super.key, required this.icon, required this.label, required this.controller, this.maxLines = 1 });
 
   @override
   Widget build(BuildContext context) {

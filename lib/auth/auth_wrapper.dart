@@ -1,5 +1,7 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_ticket_booking/shared/no_internet_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'login.dart';
@@ -20,6 +22,7 @@ class AuthWrapper extends StatefulWidget {
 class _AuthWrapperState extends State<AuthWrapper> {
   late final Stream<User?> _authStream;
   Future<void>? _loadUserFuture;
+  Future<bool>? _internetCheckFuture;
 
   @override
   void initState() {
@@ -39,6 +42,14 @@ class _AuthWrapperState extends State<AuthWrapper> {
     );
 
     userProvider.setUser(user);
+  }
+
+  /// Retry loading user data
+  void _retry() {
+    setState(() {
+      _loadUserFuture = null;
+      _internetCheckFuture = null;
+    });
   }
 
   @override
@@ -73,12 +84,32 @@ class _AuthWrapperState extends State<AuthWrapper> {
               );
             }
 
-            // 5️⃣ Backend error
             if (userSnapshot.hasError) {
-              return const ErrorState();
+              _internetCheckFuture ??= hasInternet();
+
+              return FutureBuilder<bool>(
+                future: _internetCheckFuture,
+                builder: (context, netSnapshot) {
+                  if (netSnapshot.connectionState == ConnectionState.waiting) {
+                    return const Scaffold(
+                      body: Loader(content: "Checking internet connection..."),
+                    );
+                  }
+                  final isOnline = netSnapshot.data ?? false;
+                  if (!isOnline) {
+                    return Scaffold(
+                      body: Center(
+                        child: NoInternetScreen(
+                          onRetry: _retry,
+                        ),
+                      ),
+                    );
+                  }
+                  return ErrorState();
+                },
+              );
             }
 
-            // 6️⃣ Fully authenticated & loaded
             final user = userProvider.user!;
 
             if (user.role == "admin") {
@@ -91,4 +122,9 @@ class _AuthWrapperState extends State<AuthWrapper> {
       },
     );
   }
+}
+
+Future<bool> hasInternet() async {
+  final result = await Connectivity().checkConnectivity();
+  return result != ConnectivityResult.none;
 }
