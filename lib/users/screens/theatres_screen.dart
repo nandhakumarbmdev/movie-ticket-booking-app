@@ -184,11 +184,7 @@ class _TheatresScreenState extends State<TheatresScreen> {
     );
   }
 
-  Widget _buildEmptyState({
-    required IconData icon,
-    required String title,
-    required String subtitle,
-  }) {
+  Widget _buildEmptyState({ required IconData icon, required String title, required String subtitle }) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -226,11 +222,7 @@ class TheatreCard extends StatelessWidget {
   final TheatreModel theatre;
   final VoidCallback onTap;
 
-  const TheatreCard({
-    super.key,
-    required this.theatre,
-    required this.onTap,
-  });
+  const TheatreCard({ super.key, required this.theatre, required this.onTap });
 
   @override
   Widget build(BuildContext context) {

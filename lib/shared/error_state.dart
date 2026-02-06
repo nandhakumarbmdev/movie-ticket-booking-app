@@ -56,20 +56,7 @@ class ErrorState extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
 
-                const SizedBox(height: 12),
-
-                // Description
-                Text(
-                  'We couldn\'t complete your request.\nPlease check your connection and try again.',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.grey[600],
-                    height: 1.5,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 48),
+                const SizedBox(height: 36),
 
                 // Retry Button (optional)
                 if (onRetry != null) ...[

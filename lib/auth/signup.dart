@@ -22,7 +22,6 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _loading = false;
   bool _obscurePassword = true;
 
-
   Future<void> _signup() async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -34,16 +33,17 @@ class _SignupScreenState extends State<SignupScreen> {
         password: _passwordController.text.trim(),
       );
 
-      final String token = await user.getIdToken().toString();
+      final token = await user.getIdToken();
 
       await UserApi.createUser(
-        token: token,
+        token: token.toString(),
         name: _nameController.text.trim(),
         email: _emailController.text.trim(),
       );
 
       if (!mounted) return;
       Navigator.pop(context);
+
     } on FirebaseAuthException catch(e) {
       if (!mounted) return;
       final err =e.message;
@@ -68,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

@@ -28,13 +28,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    final user = context.read<UserProvider>().user;
-
-    if (user != null) {
-      _nameController.text = user.name;
-      _addressController.text = user.address;
-    }
+    final user = context.read<UserProvider>().user!;
+    _nameController.text = user.name;
+    _addressController.text = user.address;
   }
+
 
   @override
   void dispose() {
@@ -119,7 +117,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if (confirm == true) {
       try {
         await AuthService.signOut();
-        Navigator.pop(context);
       } catch (_) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(

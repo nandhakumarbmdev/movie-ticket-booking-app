@@ -30,11 +30,9 @@ class _AuthWrapperState extends State<AuthWrapper> {
     _authStream = FirebaseAuth.instance.authStateChanges();
   }
 
-  /// Loads backend user ONCE per login
   Future<void> _loadUser(BuildContext context, User firebaseUser) async {
     final userProvider = context.read<UserProvider>();
 
-    // Guard: never reload if already present
     if (userProvider.user != null) return;
 
     final user = await UserApi.getUserByEmail(
@@ -44,7 +42,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
     userProvider.setUser(user);
   }
 
-  /// Retry loading user data
   void _retry() {
     setState(() {
       _loadUserFuture = null;
